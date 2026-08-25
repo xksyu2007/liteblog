@@ -19,21 +19,28 @@
         ]
     },
     "cs": {
-        "tag": ["",""],
+        "tag": ["cpp","java"],
         "list": [
             {
-                "file": "",
-                "title": "",
-                "abstract": "",
-                "tag": "",
-                "date": ""
+                "file": "0.md",
+                "title": "入门编程",
+                "abstract": "哈基米南北绿豆。基米哈东西黄豆。\n这是一个换行。",
+                "tag": "cpp",
+                "date": "1970-01-01"
             },
             {
-                "file": "",
-                "title": "",
-                "abstract": "",
-                "tag": "",
-                "date": ""
+                "file": "1.md",
+                "title": "计算机组成原理",
+                "abstract": "敏捷的棕色狐狸跳过懒惰大狗。\n你说的对，但是原神\n是一款游戏。",
+                "tag": "java",
+                "date": "2007-01-19"
+            },
+            {
+                "file": "1.md",
+                "title": "测试",
+                "abstract": "nullptr",
+                "tag": "java",
+                "date": "2026-09-01"
             }
         ]
     }

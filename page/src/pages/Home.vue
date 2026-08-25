@@ -30,19 +30,19 @@
             </div>
         </div>
         <div class="card-layout">
-            <router-link to="Project" class="card-single">
+            <router-link to="project" class="card-single">
                 <i class="bi bi-boxes size-title"></i>
                 <div class="size-small-content">项目</div>
             </router-link>
-            <router-link to="Tool" class="card-single">
+            <router-link to="tool" class="card-single">
                 <i class="bi bi-wrench-adjustable-circle size-title"></i>
                 <div class="size-small-content">工具</div>
             </router-link>
-            <router-link to="CsArticle" class="card-single">
+            <router-link to="cspost" class="card-single">
                 <i class="bi bi-code-slash size-title"></i>
                 <div class="size-small-content">计算机</div>
             </router-link>
-            <router-link to="MiscArticle" class="card-single">
+            <router-link to="miscpost" class="card-single">
                 <i class="bi bi-text-paragraph size-title"></i>
                 <div class="size-small-content">随笔杂文</div>
             </router-link>
