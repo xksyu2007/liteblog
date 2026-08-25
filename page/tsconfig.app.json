@@ -9,11 +9,20 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@framework/*": ["./src/framework/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@misc/*": ["./src/misc/*"],
+      "@tools/*": ["./standalone/tools/*"],
+    }
   },
   "include": [
-    "front/src/**/*.ts",
-    "front/src/**/*.tsx",
-    "front/src/**/*.vue"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ]
 }

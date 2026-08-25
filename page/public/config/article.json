@@ -1,0 +1,40 @@
+{
+    "misc": {
+        "tag": ["",""],
+        "list": [
+            {
+                "file": "",
+                "title": "",
+                "abstract": "",
+                "tag": "",
+                "date": ""
+            },
+            {
+                "file": "",
+                "title": "",
+                "abstract": "",
+                "tag": "",
+                "date": ""
+            }
+        ]
+    },
+    "cs": {
+        "tag": ["",""],
+        "list": [
+            {
+                "file": "",
+                "title": "",
+                "abstract": "",
+                "tag": "",
+                "date": ""
+            },
+            {
+                "file": "",
+                "title": "",
+                "abstract": "",
+                "tag": "",
+                "date": ""
+            }
+        ]
+    }
+}

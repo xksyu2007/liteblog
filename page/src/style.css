@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'EN_A';
+    src: url('@assets/font/en.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'ZH_A';
+    src: url('@assets/font/zhA_main.woff2') format('woff2');
+}
+
+:root {
+    font-family: EN_A, sans-serif;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+    }
+    a:visited {
+        color: inherit;
+    }
+}
+
+.size-header {
+    font-size: clamp(42px, 4.86vw, 88px);
+}
+.size-subheader {
+    font-size: clamp(24px, 2.78vw, 50px);
+}
+.size-big-title {
+    font-size: clamp(26px, 2.92vw, 52px);
+}
+.size-big-content {
+    font-size: clamp(20px, 1.94vw, 34px);
+}
+.size-title {
+    font-size: clamp(20px, 1.67vw, 30px);
+}
+.size-content {
+    font-size: clamp(16px, 1.25vw, 22px);
+}
+.size-small-title {
+    font-size: clamp(16px, 1.25vw, 22px);
+}
+.size-small-content {
+    font-size: clamp(13px, 0.97vw, 17px);
+}
+.size-tiny {
+    font-size: clamp(12px, 0.83vw, 15px);
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+}

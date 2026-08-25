@@ -1,0 +1,19 @@
+{
+    "headcard": [
+        {
+            "title": "swufe_netool",
+            "content": "校园网连接&排障助手，联网不再困难。正在开发中...",
+            "link": ""
+        },
+        {
+            "title": "tech_notes",
+            "content": "计算机技术学习札记，含编程/运维等主题，持续更新。",
+            "link": ""
+        }
+    ],
+    "card":
+    {
+        "email": "mailto:1@xksyu.cn",
+        "github": "https://github.com/xksyu2007"
+    }
+}
