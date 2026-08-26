@@ -139,4 +139,9 @@
     height: 80px;
     text-wrap: balance;
 }
+
+.card-single:hover{
+    border-radius: 60px;
+    transition: border-radius 0.2s ease;
+}
 </style>
