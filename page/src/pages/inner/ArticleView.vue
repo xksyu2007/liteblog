@@ -1,11 +1,125 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import MarkdownIt from "markdown-it";
+import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
+import type {article, articleInfo} from "@misc/interface.ts";
+import "@pages/inner/markdown.css"
 
+
+const md = new MarkdownIt({
+    html: false,
+    linkify: true,
+    typographer: true,
+    breaks: true,
+    highlight: function (str: string, lang: string): string {
+        if (lang && hljs.getLanguage(lang)) {
+            try {
+                return `<pre class="hljs"><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`;
+            } catch (__) {}
+        }
+        return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;
+    }
+});
+md.use(MarkdownItGitHubAlerts);
+
+const route = useRoute()
+const Page = ref('')
+const loading = ref(true)
+onMounted(async () => {
+    try {
+        const id = route.params.id
+        const response = await fetch(`/article/${id}`)
+
+        if (response.ok) {
+            const rawText = await response.text()
+            Page.value = md.render(rawText)
+        } else {
+            Page.value = ''
+        }
+    } catch (error) {
+        Page.value = ''
+    } finally {
+        loading.value = false
+    }
+})
+
+const post = ref<articleInfo>()
+onMounted(async () => {
+    const response1 = await fetch('/config/article.json')
+    const data:article = await response1.json()
+    post.value = data.cs.list.find((item: articleInfo) => item.file === route.params.id)
+    if(post.value === undefined){
+        post.value = data.misc.list.find((item: articleInfo) => item.file === route.params.id)
+    }
+})
 </script>
 
 <template>
-
+    <div class="main-layout">
+        <div class="sub-layout">
+            <div class="head" v-if="post">
+                <div class="size-big-title">{{post.title}}</div>
+                <div class="head-info-layout">
+                    <div class="head-tag size-tiny">{{post.tag}}</div>
+                    <div class="head-date size-small-content">{{post.date}}</div>
+                </div>
+                <div class="size-content">{{post.abstract}}</div>
+            </div>
+            <div v-html="Page" class="article-content md size-content"/>
+        </div>
+    </div>
 </template>
 
 <style scoped>
+.main-layout{
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.sub-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85vw;
+}
+
+.head{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+.head-info-layout{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.head-tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: blanchedalmond;
+    padding: 8px;
+}
+
+.head-date{
+    color: gray;
+}
+
+.article-content{
+    width: 100%;
+}
 </style>

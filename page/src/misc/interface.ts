@@ -10,27 +10,22 @@ export type home = {
         date: string
     }
 }
+export type articleInfo = {
+    file: string,
+    title: string,
+    abstract: string,
+    tag: string,
+    date: string
+}
 
 export type article = {
     misc: {
         tag: string[],
-        list: {
-            file: string,
-            title: string,
-            abstract: string,
-            tag: string,
-            date: string
-        }[]
+        list: articleInfo[]
     },
     cs: {
         tag: string[],
-        list: {
-            file: string,
-            title: string,
-            abstract: string,
-            tag: string,
-            date: string
-        }[]
+        list: articleInfo[]
     }
 }
 
