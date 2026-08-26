@@ -13,7 +13,6 @@
 
     "paths": {
       "@src/*": ["./src/*"],
-      "@framework/*": ["./src/framework/*"],
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@misc/*": ["./src/misc/*"],

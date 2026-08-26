@@ -4,6 +4,7 @@ import {computed, onMounted, ref} from "vue";
 
 const whole = ref<article>()
 onMounted(async () => {
+
     const response1 = await fetch('/config/article.json')
     whole.value = await response1.json()
 })
@@ -22,6 +23,18 @@ const filteredArticles = computed(() => {
 <template>
     <div class="main-layout">
         <div class="sub-layout">
+            <div class="head">
+                <router-link class="head-back" to="/">
+                    <i class="bi bi-arrow-left-circle size-big-title"></i>
+                </router-link>
+                <div class="size-big-title">Computer Science</div>
+            </div>
+
+            <div v-if="!config" class="load">
+                <i class="bi bi-arrow-clockwise"></i>
+                Loading ...
+            </div>
+
             <div v-if="config" class="tag-layout no-select">
                 <div class="tag" @click="all = true">全部显示</div>
                 <div class="tag" v-for="item in config.tag">
@@ -61,6 +74,27 @@ const filteredArticles = computed(() => {
         flex-direction: column;
         align-items: center;
         width: 85vw;
+    }
+
+    .head{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .head-back{
+        width: 10%;
+        border-radius: 80px;
+        padding: 10px 0;
+        background-color: lavender;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .tag-layout{
@@ -132,6 +166,10 @@ const filteredArticles = computed(() => {
     }
 
     @media screen and (max-width: 768px) {
+        .head-back{
+            width: 20%;
+        }
+
         .article-layout {
             columns: 1;
             column-gap: 15px;

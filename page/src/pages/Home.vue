@@ -21,6 +21,12 @@
             <div class="title-zh size-header">流年未止 未来可期</div>
             <div class="title-en size-subheader">The story continues.</div>
         </div>
+
+        <div v-if="!config" class="load">
+            <i class="bi bi-arrow-clockwise"></i>
+            Loading ...
+        </div>
+
         <div class="headcard-layout">
             <div class="headcard-block" v-for="item in config.headcard" v-if="config">
                 <div class="headcard-block-inner-layout" @click="visit(item.link)">
