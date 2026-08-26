@@ -24,7 +24,7 @@
 
         <div v-if="!config" class="load">
             <i class="bi bi-arrow-clockwise"></i>
-            Loading ...
+             Loading ...
         </div>
 
         <div class="headcard-layout">
@@ -35,6 +35,11 @@
                 </div>
             </div>
         </div>
+
+        <div class="phone-line size-big-title">
+            Global Index
+        </div>
+
         <div class="card-layout">
             <router-link to="project" class="card-single">
                 <i class="bi bi-boxes size-title"></i>
@@ -50,7 +55,7 @@
             </router-link>
             <router-link to="miscpost" class="card-single">
                 <i class="bi bi-text-paragraph size-title"></i>
-                <div class="size-small-content">随笔杂文</div>
+                <div class="size-small-content">杂文</div>
             </router-link>
 
             <div class="card-single" @click="visit('https://cloud.xksyu.cn')">
@@ -143,5 +148,55 @@
 .card-single:hover{
     border-radius: 60px;
     transition: border-radius 0.2s ease;
+}
+
+.phone-line{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .phone-line{
+        display: flex;
+        align-self: start;
+    }
+
+    .sub-layout{
+        width: 95%;
+        gap: 15px;
+    }
+
+    .headcard-layout{
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .headcard-block{
+        width: 90%;
+        margin: 0;
+    }
+
+    .card-layout{
+        display: flow;
+        columns: 4;
+        column-gap: 10px;
+        width: 100%;
+    }
+
+    .card-layout > :deep(*) {
+        margin-top: 0;
+    }
+
+    .card-single{
+        break-inside: avoid;
+        margin-bottom: 10px;
+        width: 75%;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+
 }
 </style>

@@ -1,12 +1,12 @@
 [
     {
-        "name": "",
-        "abstract": "",
+        "name": "coursemap",
+        "abstract": "网页课程表\n使用npm部署。",
         "link": ""
     },
     {
-        "name": "",
-        "abstract": "",
+        "name": "liteblog",
+        "abstract": "本网站的源码\n欢迎下载。",
         "link": ""
     }
 ]

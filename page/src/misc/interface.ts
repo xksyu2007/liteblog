@@ -6,7 +6,8 @@ export type home = {
     }[],
     card: {
         email: string,
-        github: string
+        github: string,
+        date: string
     }
 }
 
