@@ -32,7 +32,7 @@ const filteredArticles = computed(() => {
 
             <div v-if="!config" class="load">
                 <i class="bi bi-arrow-clockwise"></i>
-                Loading ...
+                 Loading ...
             </div>
 
             <div v-if="config" class="tag-layout no-select">
