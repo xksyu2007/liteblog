@@ -22,8 +22,8 @@ watch(
         <div class="sub-layout">
             <div class="title no-select">
                 <div class="title-home"
-                     @click="$router.push(`/`)">
-                    <i class="bi bi-house size-title"></i>
+                     @click="$router.back()">
+                    <i class="bi bi-arrow-left-circle size-title"></i>
                 </div>
                 <div class="title-name size-title">
                     夏空拾雨小站
