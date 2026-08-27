@@ -5,13 +5,14 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [vue()],
+    publicDir: false,
     resolve:{
         alias: {
-          '@src': path.resolve(__dirname, 'src'),
-          '@pages': path.resolve(__dirname,'src/pages'),
-          '@assets': path.resolve(__dirname,'src/assets'),
-          '@misc': path.resolve(__dirname,'src/misc'),
-          '@tools': path.resolve(__dirname,'standalone/tools'),
+          '@src': path.resolve(import.meta.dirname, './src'),
+          '@pages': path.resolve(import.meta.dirname,'./src/pages'),
+          '@assets': path.resolve(import.meta.dirname,'./src/assets'),
+          '@misc': path.resolve(import.meta.dirname,'./src/misc'),
+          '@tools': path.resolve(import.meta.dirname,'./src/tools'),
         }
     }
 })

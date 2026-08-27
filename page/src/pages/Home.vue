@@ -80,7 +80,7 @@
 .main-layout{
     width: 100vw;
     height: 100vh;
-    background-color: ghostwhite;
+    background-color :snow;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,8 +137,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    background-color: lavender;
+    border-radius: 20px;
+    background-color: #e3f2fd;
     padding: 20px;
     width: 15%;
     height: 80px;

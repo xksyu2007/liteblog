@@ -3,11 +3,52 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import MarkdownIt from "markdown-it";
 import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
+import c from 'highlight.js/lib/languages/c';
+import cpp from 'highlight.js/lib/languages/cpp';
+import java from 'highlight.js/lib/languages/java';
+import kotlin from 'highlight.js/lib/languages/kotlin';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import xml from 'highlight.js/lib/languages/xml';
+import css from 'highlight.js/lib/languages/css';
+import json from 'highlight.js/lib/languages/json';
+import bash from 'highlight.js/lib/languages/bash';
+import powershell from 'highlight.js/lib/languages/powershell';
+import dos from 'highlight.js/lib/languages/dos';
+import rust from 'highlight.js/lib/languages/rust';
 import 'highlight.js/styles/github.css';
 import type {article, articleInfo} from "@misc/interface.ts";
 import "@pages/inner/markdown.css"
-
+hljs.registerLanguage('c', c);
+hljs.registerLanguage('cpp', cpp);
+hljs.registerLanguage('java', java);
+hljs.registerLanguage('kotlin', kotlin);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('json', json);
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('powershell', powershell);
+hljs.registerLanguage('dos', dos);
+hljs.registerLanguage('rust', rust);
+const languageAliases: Record<string, string> = {
+    'c++': 'cpp',
+    js: 'javascript',
+    ts: 'typescript',
+    html: 'xml',
+    vue: 'xml',
+    sh: 'bash',
+    shell: 'bash',
+    ps: 'powershell',
+    ps1: 'powershell',
+    cmd: 'dos',
+    bat: 'dos',
+    batch: 'dos',
+    kt: 'kotlin',
+    rs: 'rust',
+};
 
 const md = new MarkdownIt({
     html: false,
@@ -15,9 +56,10 @@ const md = new MarkdownIt({
     typographer: true,
     breaks: true,
     highlight: function (str: string, lang: string): string {
-        if (lang && hljs.getLanguage(lang)) {
+        const language = languageAliases[lang.toLowerCase()] ?? lang.toLowerCase();
+        if (language && hljs.getLanguage(language)) {
             try {
-                return `<pre class="hljs"><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`;
+                return `<pre class="hljs"><code>${hljs.highlight(str, { language, ignoreIllegals: true }).value}</code></pre>`;
             } catch (__) {}
         }
         return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;

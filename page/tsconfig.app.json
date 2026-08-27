@@ -16,7 +16,7 @@
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@misc/*": ["./src/misc/*"],
-      "@tools/*": ["./standalone/tools/*"],
+      "@tools/*": ["./src/tools/*"],
     }
   },
   "include": [
