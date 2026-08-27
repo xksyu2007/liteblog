@@ -29,7 +29,9 @@ watch(
                     夏空拾雨小站
                 </div>
             </div>
-            <Page/>
+            <div class="page">
+                <Page/>
+            </div>
         </div>
     </div>
 </template>
@@ -82,5 +84,10 @@ watch(
     font-family: 'ZH_A', sans-serif;
     width: auto;
     flex-grow: 1;
+}
+
+.page{
+    width: 100%;
+    margin-top: 10px;
 }
 </style>

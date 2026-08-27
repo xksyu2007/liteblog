@@ -15,8 +15,11 @@
 </script>
 
 <template>
-  <div ref="ui" class="ui"></div>
+  <div ref="ui" class="ui layout"></div>
 </template>
 
 <style>
+    .layout{
+        width: 100%;
+    }
 </style>

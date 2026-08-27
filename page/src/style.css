@@ -7,7 +7,7 @@
     src: url('@assets/font/zhA_main.woff2') format('woff2');
 }
 
-:root {
+html:root {
     font-family: EN_A, sans-serif;
 
     a {
