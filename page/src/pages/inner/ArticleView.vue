@@ -60,6 +60,16 @@ onMounted(async () => {
 <template>
     <div class="main-layout">
         <div class="sub-layout">
+            <div class="title no-select">
+                <div class="title-home"
+                     @click="$router.push(`/`)">
+                    <i class="bi bi-house size-title"></i>
+                </div>
+                <div class="title-name size-title">
+                    夏空拾雨小站
+                </div>
+            </div>
+
             <div class="head" v-if="post">
                 <div class="size-big-title">{{post.title}}</div>
                 <div class="head-info-layout">
@@ -69,6 +79,11 @@ onMounted(async () => {
                 <div class="size-content">{{post.abstract}}</div>
             </div>
             <div v-html="Page" class="article-content md size-content"/>
+
+            <div v-if="loading||!post" class="load">
+                <i class="bi bi-arrow-clockwise"></i>
+                Loading ...
+            </div>
         </div>
     </div>
 </template>
@@ -88,6 +103,41 @@ onMounted(async () => {
     width: 85vw;
 }
 
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.title-home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: lavenderblush;
+    padding: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.title-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: azure;
+    padding: 20px;
+    font-family: 'ZH_A', sans-serif;
+    width: auto;
+    flex-grow: 1;
+}
+
 .head{
     display: flex;
     flex-direction: column;
@@ -97,6 +147,7 @@ onMounted(async () => {
     border-radius: 20px;
     width: 100%;
     white-space: pre-wrap;
+    box-sizing: border-box;
 }
 
 .head-info-layout{
