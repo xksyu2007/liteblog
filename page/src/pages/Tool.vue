@@ -118,6 +118,10 @@ onMounted(async () => {
         columns: 1;
         column-gap: 15px;
     }
+
+    .head{
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1280px) {

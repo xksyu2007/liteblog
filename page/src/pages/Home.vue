@@ -124,6 +124,10 @@
     text-wrap: balance;
 }
 
+.headcard-block-inner-layout{
+    overflow-wrap: anywhere;
+}
+
 .card-layout{
     display: flex;
     flex-direction: row;
@@ -160,12 +164,19 @@
         align-self: start;
     }
 
+    .main-layout{
+        height: auto;
+        justify-content: start;
+    }
+
     .sub-layout{
         width: 95%;
         gap: 15px;
+        padding: 20px 0;
     }
 
     .headcard-layout{
+        box-sizing: border-box;
         flex-direction: column;
         justify-content: center;
         width: 100%;
@@ -173,26 +184,22 @@
     }
 
     .headcard-block{
-        width: 90%;
+        box-sizing: border-box;
+        width: 100%;
         margin: 0;
     }
 
     .card-layout{
-        display: flow;
-        columns: 4;
-        column-gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
         width: 100%;
     }
 
-    .card-layout > :deep(*) {
-        margin-top: 0;
-    }
-
     .card-single{
-        break-inside: avoid;
-        margin-bottom: 10px;
-        width: 75%;
-        padding: 10px;
+        width: auto;
+        box-sizing: border-box;
+        margin: 0;
     }
 }
 

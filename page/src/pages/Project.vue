@@ -60,7 +60,7 @@ function visit(link:string){
             <div class="project" v-if="config1">
                 <div class="project-single" v-for="item in config1">
                     <div class="project-title-layout">
-                        <div class="size-big-title">{{item.name}}</div>
+                        <div class="size-big-title project-title">{{item.name}}</div>
                         <div class="project-button no-select size-small-content"
                             @clic="visit(item.link)">
                             Visit
@@ -182,17 +182,46 @@ function visit(link:string){
     padding: 8px;
     border-radius: 50px;
     background-color: peachpuff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
+    .head{
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .head-left{
-        width: auto;
+        width: 100%;
     }
+
     .head-left-b{
-        width: auto;
+        display: none;
     }
+
     .head-right{
-        margin-left: auto;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .project{
+        gap: 10px;
+    }
+
+    .project-title-layout{
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .project-single:nth-child(odd){
+        align-items: start;
+    }
+
+    .project-title{
+        white-space: pre-wrap;
     }
 }
 </style>

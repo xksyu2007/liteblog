@@ -107,6 +107,7 @@ const filteredArticles = computed(() => {
     width: 100%;
     padding: 20px;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .tag{
@@ -172,6 +173,10 @@ const filteredArticles = computed(() => {
     .article-layout {
         columns: 1;
         column-gap: 15px;
+    }
+
+    .tag-layout{
+        justify-content: start;
     }
 }
 
