@@ -3,9 +3,12 @@ import { defineConfig } from 'vite'
 import path from "path";
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
     plugins: [vue()],
-    publicDir: false,
+    publicDir: command === 'serve' ? 'public' : false,
+    server:{
+        host: '192.168.0.33'
+    },
     resolve:{
         alias: {
           '@src': path.resolve(import.meta.dirname, './src'),
@@ -15,4 +18,4 @@ export default defineConfig({
           '@tools': path.resolve(import.meta.dirname,'./src/tools'),
         }
     }
-})
+}))
