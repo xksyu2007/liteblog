@@ -156,10 +156,10 @@ const float = computed(() => {
   padding: 1rem;
 }
 .imgCard{
-  background-color: var(--bg-p1);
+  background-color: #f0f9ff;
 }
 .opCard{
-  background-color: var(--bg-b1);
+  background-color: #f5faff;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -168,13 +168,13 @@ const float = computed(() => {
 .button{
   border-radius: 10px;
   padding: 0.5rem;
-  color: var(--ft-b1);
+  color: #336699;
 }
 .buttonB{
-  background-color: var(--bg-p1);
+  background-color: #ffebf0;
 }
 .buttonA{
-  background-color: var(--bg-b4);
+  background-color: #e6f4ff;
 }
 .field{
   width: 3rem;
@@ -204,6 +204,6 @@ const float = computed(() => {
   transition: transform 0.1s ease-out;
   padding: 5px;
   border-radius: 10px;
-  background-color: var(--bg-b1);
+  background-color: #fffac8;
 }
 </style>
