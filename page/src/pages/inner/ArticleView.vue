@@ -17,6 +17,7 @@ import bash from 'highlight.js/lib/languages/bash';
 import powershell from 'highlight.js/lib/languages/powershell';
 import dos from 'highlight.js/lib/languages/dos';
 import rust from 'highlight.js/lib/languages/rust';
+import nginx from 'highlight.js/lib/languages/nginx'
 import 'highlight.js/styles/github.css';
 import type {article, articleInfo} from "@misc/interface.ts";
 import "@pages/inner/markdown.css"
@@ -33,6 +34,7 @@ hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('powershell', powershell);
 hljs.registerLanguage('dos', dos);
 hljs.registerLanguage('rust', rust);
+hljs.registerLanguage('nginx', nginx);
 const languageAliases: Record<string, string> = {
     'c++': 'cpp',
     js: 'javascript',
