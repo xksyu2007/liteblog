@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import {defineAsyncComponent, shallowRef, watch} from "vue";
-import "@pages/inner/override.css"
+import "@pages/style/override.css"
 
 const route = useRoute()
 const Page = shallowRef();

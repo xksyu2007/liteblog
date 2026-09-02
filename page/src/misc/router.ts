@@ -30,6 +30,10 @@ export const navList: RouteRecordRaw[] = [
         path: '/tool/:id',
         component: () => import('@pages/inner/ToolView.vue'),
     },
+    {
+        path: '/admiao',
+        component: () => import('@pages/admin/editor.vue'),
+    },
 ]
 
 const router = createRouter({
