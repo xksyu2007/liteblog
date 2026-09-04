@@ -3,3 +3,5 @@
 /.claude/
 /page/node_modules/
 /page/dist/
+/api/node_modules/
+/api/dist/
