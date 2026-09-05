@@ -7,15 +7,16 @@ export default defineConfig(({ command }) => ({
     plugins: [vue()],
     publicDir: command === 'serve' ? 'public' : false,
     server:{
-        host: '10.62.58.126'
+        host: '10.62.61.247'
     },
     resolve:{
         alias: {
-          '@src': path.resolve(import.meta.dirname, './src'),
-          '@pages': path.resolve(import.meta.dirname,'./src/pages'),
-          '@assets': path.resolve(import.meta.dirname,'./src/assets'),
-          '@misc': path.resolve(import.meta.dirname,'./src/misc'),
-          '@tools': path.resolve(import.meta.dirname,'./src/tools'),
+            '@src': path.resolve(import.meta.dirname, './src'),
+            '@pages': path.resolve(import.meta.dirname,'./src/pages'),
+            '@assets': path.resolve(import.meta.dirname,'./src/assets'),
+            '@misc': path.resolve(import.meta.dirname,'./src/misc'),
+            '@tools': path.resolve(import.meta.dirname,'./src/tools'),
+            '@style': path.resolve(import.meta.dirname,'./src/style'),
         }
     }
 }))

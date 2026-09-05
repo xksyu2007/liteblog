@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '@pages/style/override.css'
+import '@style/override.css'
 import '@misc/interface'
 import { io,Socket } from 'socket.io-client'
 import {onMounted, ref} from "vue"

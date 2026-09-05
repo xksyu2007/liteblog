@@ -1,27 +1,28 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "types": ["vite/client"],
-    "allowArbitraryExtensions": true,
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "types": ["vite/client"],
+        "allowArbitraryExtensions": true,
 
-    /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
+        /* Linting */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "erasableSyntaxOnly": true,
+        "noFallthroughCasesInSwitch": true,
 
-    "paths": {
-      "@src/*": ["./src/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@misc/*": ["./src/misc/*"],
-      "@tools/*": ["./src/tools/*"],
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ]
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@misc/*": ["./src/misc/*"],
+            "@tools/*": ["./src/tools/*"],
+            "@style/*": ["./src/style/*"]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue"
+    ]
 }

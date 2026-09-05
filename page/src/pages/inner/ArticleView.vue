@@ -20,7 +20,6 @@ import rust from 'highlight.js/lib/languages/rust';
 import nginx from 'highlight.js/lib/languages/nginx'
 import 'highlight.js/styles/github.css';
 import type {article, articleInfo} from "@misc/interface.ts";
-import "@pages/style/markdown.css"
 hljs.registerLanguage('c', c);
 hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('java', java);

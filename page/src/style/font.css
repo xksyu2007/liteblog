@@ -1,3 +1,13 @@
+/*
+ * Project:     liteblog
+ * Author:      xksyu2007
+ * Name:        font.css
+ * Abstract:
+ *      Global font styles, including type, size etc.
+ */
+
+
+/* font style */
 @font-face {
     font-family: 'EN_A';
     src: url('@assets/font/en.woff2') format('woff2');
@@ -7,19 +17,12 @@
     src: url('@assets/font/zhA_main.woff2') format('woff2');
 }
 
-html:root {
+/* default font settings */
+html:root{
     font-family: EN_A, sans-serif;
-
-    a {
-        text-decoration: none;
-        color: inherit;
-        outline: none;
-    }
-    a:visited {
-        color: inherit;
-    }
 }
 
+/* font size */
 .size-header {
     font-size: clamp(42px, 4.86vw, 88px);
 }
@@ -48,6 +51,7 @@ html:root {
     font-size: clamp(12px, 0.83vw, 15px);
 }
 
+/* font toolkit */
 .no-select {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -55,16 +59,4 @@ html:root {
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-drag: none;
-}
-
-.load{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: lightcyan;
-    align-self: start;
-    margin: 15px 0;
 }
