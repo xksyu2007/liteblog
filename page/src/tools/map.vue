@@ -94,7 +94,7 @@ const float = computed(() => {
 
 <template>
   <div>
-    <div class="overlay no-select">
+    <div class="overlay tk-noselect">
       <div class="card imgCard"
            @mouseenter="showFloat = true" @mouseleave="showFloat = false">
         <img class="map" v-if="imageUrl" :src="imageUrl" alt="地图文件"
@@ -137,7 +137,7 @@ const float = computed(() => {
       </div>
     </div>
 
-    <div class="float no-select" :style="float" v-show="showFloat" >
+    <div class="float tk-noselect" :style="float" v-show="showFloat" >
       {{data.xz_r?"z":"x"}} = {{ Math.trunc((x - x_fix) * data.posSizeX / 100) * (data.x_r?-1:1) }} ,
       {{data.xz_r?"x":"z"}} = {{ Math.trunc((z - z_fix) * data.posSizeZ / 100) * (data.z_r?-1:1) }}
     </div>

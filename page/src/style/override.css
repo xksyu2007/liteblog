@@ -17,6 +17,12 @@ html:root {
         color: inherit;
     }
 }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html{
+    margin: 0;
+}
 
 /* html elements override */
 input[type=checkbox],input[type=radio] {

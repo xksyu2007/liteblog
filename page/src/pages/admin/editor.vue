@@ -118,7 +118,7 @@ function post(){
 </script>
 
 <template>
-    <div class="main-layout no-select">
+    <div class="main-layout tk-noselect">
         <div class="sub-layout">
             <div class="lineA">
                 <div class="title-home"

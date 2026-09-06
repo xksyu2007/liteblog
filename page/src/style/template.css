@@ -7,7 +7,7 @@
  */
 
 /* loading block */
-.load{
+.tp-load{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,4 +17,51 @@
     background-color: lightcyan;
     align-self: start;
     margin: 15px 0;
+}
+
+/* avoid user selecting */
+.tk-noselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+}
+
+/* back button, list view style */
+.tp-back-listview{
+    width: 10%;
+    border-radius: 80px;
+    padding: 10px 0;
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width: 768px) {
+    .tp-back-listview{
+        width: 20%;
+    }
+}
+
+/* back button, content view style */
+.tp-back-contentview{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: lavenderblush;
+    padding: 20px;
+}
+
+/* root div style */
+.tp-root{
+    padding: 30px 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
 }

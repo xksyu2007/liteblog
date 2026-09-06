@@ -7,7 +7,7 @@ export default defineConfig(({ command }) => ({
     plugins: [vue()],
     publicDir: command === 'serve' ? 'public' : false,
     server:{
-        host: '10.62.61.247'
+        host: '192.168.31.238'
     },
     resolve:{
         alias: {

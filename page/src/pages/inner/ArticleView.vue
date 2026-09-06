@@ -101,51 +101,35 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="main-layout">
-        <div class="sub-layout">
-            <div class="title no-select">
-                <div class="title-home"
-                     @click="$router.back()">
-                    <i class="bi bi-arrow-left-circle size-title"></i>
-                </div>
-                <div class="title-name size-title">
-                    夏空拾雨小站
-                </div>
+    <div class="tp-root">
+        <div class="title tk-noselect">
+            <div class="tp-back-contentview"
+                 @click="$router.back()">
+                <i class="bi bi-arrow-left-circle size-title"></i>
             </div>
+            <div class="title-name size-title">
+                夏空拾雨小站
+            </div>
+        </div>
 
-            <div class="head" v-if="post">
-                <div class="size-big-title">{{post.title}}</div>
-                <div class="head-info-layout">
-                    <div class="head-tag size-tiny">{{post.tag}}</div>
-                    <div class="head-date size-small-content">{{post.date}}</div>
-                </div>
-                <div class="size-content">{{post.abstract}}</div>
+        <div class="head" v-if="post">
+            <div class="size-big-title">{{post.title}}</div>
+            <div class="head-info-layout">
+                <div class="head-tag size-tiny">{{post.tag}}</div>
+                <div class="head-date size-small-content">{{post.date}}</div>
             </div>
-            <div v-html="Page" class="article-content md size-content"/>
+            <div class="size-content">{{post.abstract}}</div>
+        </div>
+        <div v-html="Page" class="article-content md size-content"/>
 
-            <div v-if="loading||!post" class="load">
-                <i class="bi bi-arrow-clockwise"></i>
-                Loading ...
-            </div>
+        <div v-if="loading||!post" class="tp-load">
+            <i class="bi bi-arrow-clockwise"></i>
+            Loading ...
         </div>
     </div>
 </template>
 
 <style scoped>
-.main-layout{
-    padding: 20px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sub-layout{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85vw;
-}
-
 .title{
     display: flex;
     flex-direction: row;
@@ -154,18 +138,6 @@ onMounted(async () => {
     width: 100%;
     gap: 20px;
     margin-bottom: 20px;
-}
-
-.title-home{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    background-color: lavenderblush;
-    padding: 20px;
-    width: 25px;
-    height: 25px;
 }
 
 .title-name{

@@ -25,69 +25,53 @@ function visit(link:string){
 </script>
 
 <template>
-    <div class="main-layout">
-        <div class="sub-layout">
-            <div class="head no-select" v-if="config2">
-                <div class="head-left">
-                    <div class="head-left-a">
-                        <router-link class="head-left-a-back" to="/">
-                            <i class="bi bi-arrow-left-circle size-big-title"></i>
-                        </router-link>
-                        <div class="size-big-title">Project</div>
-                    </div>
-                    <div class="head-left-b" @click="visit(config2.card.github)">
-                        <i class="bi bi-git size-big-title"></i>
-                    </div>
+    <div class="tp-root">
+        <div class="head tk-noselect" v-if="config2">
+            <div class="head-left">
+                <div class="head-left-a">
+                    <router-link class="head-left-a-back" to="/">
+                        <i class="bi bi-arrow-left-circle size-big-title"></i>
+                    </router-link>
+                    <div class="size-big-title">Project</div>
                 </div>
-
-                <div class="head-right">
-                    <div class="size-title">
-                        学习程序设计知识
-                    </div>
-                    <div class="counter-b">
-                        已经
-                        <div class="size-subheader">{{day}}</div>
-                        天
-                    </div>
+                <div class="head-left-b" @click="visit(config2.card.github)">
+                    <i class="bi bi-git size-big-title"></i>
                 </div>
             </div>
 
-            <div v-if="!config1||!config2" class="load">
-                <i class="bi bi-arrow-clockwise"></i>
-                Loading ...
-            </div>
-
-            <div class="project" v-if="config1">
-                <div class="project-single" v-for="item in config1">
-                    <div class="project-title-layout">
-                        <div class="size-big-title project-title">{{item.name}}</div>
-                        <div class="project-button no-select size-small-content"
-                            @clic="visit(item.link)">
-                            Visit
-                        </div>
-                    </div>
-                    <div>{{item.abstract}}</div>
+            <div class="head-right">
+                <div class="size-title">
+                    学习程序设计知识
                 </div>
+                <div class="counter-b">
+                    已经
+                    <div class="size-subheader">{{day}}</div>
+                    天
+                </div>
+            </div>
+        </div>
+
+        <div v-if="!config1||!config2" class="tp-load">
+            <i class="bi bi-arrow-clockwise"></i>
+            Loading ...
+        </div>
+
+        <div class="project" v-if="config1">
+            <div class="project-single" v-for="item in config1">
+                <div class="project-title-layout">
+                    <div class="size-big-title project-title">{{item.name}}</div>
+                    <div class="project-button tk-noselect size-small-content"
+                        @clic="visit(item.link)">
+                        Visit
+                    </div>
+                </div>
+                <div>{{item.abstract}}</div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
-.main-layout{
-    padding: 20px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sub-layout{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85vw;
-}
-
 .head{
     display: flex;
     flex-direction: row;

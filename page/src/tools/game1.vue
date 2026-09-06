@@ -110,7 +110,7 @@ const getTextStyle = (info:team) => {
 </script>
 
 <template>
-<div class="layout no-select">
+<div class="layout tk-noselect">
   <div class="lineA">
 
     <div class="op">
@@ -120,7 +120,7 @@ const getTextStyle = (info:team) => {
       </div>
       队长引导队员选中本队词语。<br>
       绿色为无关词语，黑色代表炸弹。
-      <div class="buttonGroup no-select">
+      <div class="buttonGroup tk-noselect">
         <div :class="opButton.class" @click="postData(request.OP)"> {{opButton.text}} </div>
         <div class="button"  style="background-color: #DCFADC"
         @click="postData(request.NEXT)">下一步骤</div>
@@ -155,7 +155,7 @@ const getTextStyle = (info:team) => {
   <div class="lineB">
     <div
         v-for="(elem,index) in data.content" :style="getTextStyle(elem.info)"
-        class="elem no-select" @click="postData(index+1)">
+        class="elem tk-noselect" @click="postData(index+1)">
       {{ elem.text }}
     </div>
   </div>

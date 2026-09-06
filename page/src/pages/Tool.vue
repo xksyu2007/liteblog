@@ -10,29 +10,27 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="main-layout">
-        <div class="sub-layout">
-            <div class="head">
-                <router-link class="head-back" to="/">
-                    <i class="bi bi-arrow-left-circle size-big-title"></i>
-                </router-link>
-                <div class="size-big-title">Tool</div>
-            </div>
+    <div class="tp-root">
+        <div class="head">
+            <router-link class="head-back" to="/">
+                <i class="bi bi-arrow-left-circle size-big-title"></i>
+            </router-link>
+            <div class="size-big-title">Tool</div>
+        </div>
 
-            <div v-if="!config" class="load">
-                <i class="bi bi-arrow-clockwise"></i>
-                Loading ...
-            </div>
+        <div v-if="!config" class="tp-load">
+            <i class="bi bi-arrow-clockwise"></i>
+            Loading ...
+        </div>
 
-            <div v-if="config" class="tool-layout no-select">
-                <div v-for="item in config" class="tool-single">
-                    <div class="tool-single-title size-title"
-                         @click="$router.push(`/tool/${encodeURIComponent(item.file)}`)">
-                        {{item.name}}
-                    </div>
-                    <div class="tool-single-content size-content">
-                        {{item.abstract}}
-                    </div>
+        <div v-if="config" class="tool-layout tk-noselect">
+            <div v-for="item in config" class="tool-single">
+                <div class="tool-single-title size-title"
+                     @click="$router.push(`/tool/${encodeURIComponent(item.file)}`)">
+                    {{item.name}}
+                </div>
+                <div class="tool-single-content size-content">
+                    {{item.abstract}}
                 </div>
             </div>
         </div>
@@ -40,19 +38,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.main-layout{
-    padding: 20px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sub-layout{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85vw;
-}
 
 .head{
     display: flex;

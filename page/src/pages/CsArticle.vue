@@ -21,40 +21,38 @@ const filteredArticles = computed(() => {
 </script>
 
 <template>
-    <div class="main-layout">
-        <div class="sub-layout">
-            <div class="head">
-                <router-link class="head-back" to="/">
-                    <i class="bi bi-arrow-left-circle size-big-title"></i>
-                </router-link>
-                <div class="size-big-title">Computer Science</div>
-            </div>
+    <div class="tp-root">
+        <div class="head">
+            <router-link class="tp-back-listview" to="/">
+                <i class="bi bi-arrow-left-circle size-big-title"></i>
+            </router-link>
+            <div class="size-big-title">Computer Science</div>
+        </div>
 
-            <div v-if="!config" class="load">
-                <i class="bi bi-arrow-clockwise"></i>
-                 Loading ...
-            </div>
+        <div v-if="!config" class="tp-load">
+            <i class="bi bi-arrow-clockwise"></i>
+             Loading ...
+        </div>
 
-            <div v-if="config" class="tag-layout no-select">
-                <div class="tag" @click="all = true">全部显示</div>
-                <div class="tag" v-for="item in config.tag">
-                    <div @click="tag=item;all=false">
-                        {{item}}
-                    </div>
+        <div v-if="config" class="tag-layout tk-noselect">
+            <div class="tag" @click="all = true">全部显示</div>
+            <div class="tag" v-for="item in config.tag">
+                <div @click="tag=item;all=false">
+                    {{item}}
                 </div>
             </div>
+        </div>
 
-            <div v-if="config" class="article-layout">
-                <div class="article-card no-select" v-for="item in filteredArticles"
-                     @click="$router.push(`/post/${encodeURIComponent(item.file)}`)">
-                    <div>
-                        <div class="size-title">{{item.title}}</div>
-                        <div class="artcile-info-line">
-                            <div class="size-tiny tag">{{item.tag}}</div>
-                            <div class="article-info-date size-small-content">{{item.date}}</div>
-                        </div>
-                        <div class="">{{item.abstract}}</div>
+        <div v-if="config" class="article-layout">
+            <div class="article-card tk-noselect" v-for="item in filteredArticles"
+                 @click="$router.push(`/post/${encodeURIComponent(item.file)}`)">
+                <div>
+                    <div class="size-title">{{item.title}}</div>
+                    <div class="artcile-info-line">
+                        <div class="size-tiny tag">{{item.tag}}</div>
+                        <div class="article-info-date size-small-content">{{item.date}}</div>
                     </div>
+                    <div class="">{{item.abstract}}</div>
                 </div>
             </div>
         </div>
@@ -62,20 +60,6 @@ const filteredArticles = computed(() => {
 </template>
 
 <style scoped>
-    .main-layout{
-        padding: 20px 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sub-layout{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 85vw;
-    }
-
     .head{
         display: flex;
         flex-direction: row;
@@ -84,17 +68,6 @@ const filteredArticles = computed(() => {
         align-items: center;
         justify-content: start;
         gap: 20px;
-    }
-
-    .head-back{
-        width: 10%;
-        border-radius: 80px;
-        padding: 10px 0;
-        background-color: lavender;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 
     .tag-layout{
@@ -167,10 +140,6 @@ const filteredArticles = computed(() => {
     }
 
     @media screen and (max-width: 768px) {
-        .head-back{
-            width: 20%;
-        }
-
         .article-layout {
             columns: 1;
             column-gap: 15px;

@@ -17,20 +17,18 @@ watch(
 </script>
 
 <template>
-    <div class="main-layout">
-        <div class="sub-layout">
-            <div class="title no-select">
-                <div class="title-home"
-                     @click="$router.back()">
-                    <i class="bi bi-arrow-left-circle size-title"></i>
-                </div>
-                <div class="title-name size-title">
-                    夏空拾雨小站
-                </div>
+    <div class="tp-root">
+        <div class="title tk-noselect">
+            <div class="tp-back-contentview"
+                 @click="$router.back()">
+                <i class="bi bi-arrow-left-circle size-title"></i>
             </div>
-            <div class="page">
-                <Page/>
+            <div class="title-name size-title">
+                夏空拾雨小站
             </div>
+        </div>
+        <div class="page">
+            <Page/>
         </div>
     </div>
 </template>
@@ -58,18 +56,6 @@ watch(
     width: 100%;
     gap: 20px;
     margin-bottom: 20px;
-}
-
-.title-home{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    background-color: lavenderblush;
-    padding: 20px;
-    width: 25px;
-    height: 25px;
 }
 
 .title-name{

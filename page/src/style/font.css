@@ -50,13 +50,3 @@ html:root{
 .size-tiny {
     font-size: clamp(12px, 0.83vw, 15px);
 }
-
-/* font toolkit */
-.no-select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-drag: none;
-}

@@ -14,7 +14,7 @@
 </script>
 
 <template>
-<div class="main-layout no-select">
+<div class="main-layout tk-noselect">
     <div class="sub-layout">
 
         <div class="title-layout">
@@ -22,7 +22,7 @@
             <div class="title-en size-subheader">The story continues.</div>
         </div>
 
-        <div v-if="!config" class="load">
+        <div v-if="!config" class="tp-load">
             <i class="bi bi-arrow-clockwise"></i>
              Loading ...
         </div>
@@ -116,11 +116,11 @@
 }
 
 .headcard-block{
+    flex: 1;
     border-radius: 20px;
     background-color: antiquewhite;
     padding: 20px;
     margin: 20px 0;
-    width: 48%;
     text-wrap: balance;
 }
 
@@ -137,6 +137,7 @@
 }
 
 .card-single{
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,8 +145,7 @@
     border-radius: 20px;
     background-color: #e3f2fd;
     padding: 20px;
-    width: 15%;
-    height: 80px;
+    height: 90px;
     text-wrap: balance;
 }
 
@@ -201,9 +201,5 @@
         box-sizing: border-box;
         margin: 0;
     }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1280px) {
-
 }
 </style>
