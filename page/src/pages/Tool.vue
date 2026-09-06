@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import type {tool} from "@misc/interface.ts";
+import Load from "@pages/framework/Load.vue";
 
 const config = ref<tool>()
 onMounted(async () => {
@@ -18,10 +19,7 @@ onMounted(async () => {
             <div class="size-big-title">Tool</div>
         </div>
 
-        <div v-if="!config" class="tp-load">
-            <i class="bi bi-arrow-clockwise"></i>
-            Loading ...
-        </div>
+        <load v-if="!config"/>
 
         <div v-if="config" class="tool-layout tk-noselect">
             <div v-for="item in config" class="tool-single">

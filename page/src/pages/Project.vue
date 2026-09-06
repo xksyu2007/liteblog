@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import type {home, project} from "@misc/interface.ts";
+import Load from "@pages/framework/Load.vue";
 
 const config1 = ref<project>()
 const config2 = ref<home>()
@@ -51,10 +52,7 @@ function visit(link:string){
             </div>
         </div>
 
-        <div v-if="!config1||!config2" class="tp-load">
-            <i class="bi bi-arrow-clockwise"></i>
-            Loading ...
-        </div>
+        <load v-if="!config1||!config2"/>
 
         <div class="project" v-if="config1">
             <div class="project-single" v-for="item in config1">

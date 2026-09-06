@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {article} from "@misc/interface.ts";
 import {computed, onMounted, ref} from "vue";
+import Load from "@pages/framework/Load.vue";
 
 const whole = ref<article>()
 onMounted(async () => {
-
     const response1 = await fetch('/config/article.json')
     whole.value = await response1.json()
 })
@@ -29,10 +29,7 @@ const filteredArticles = computed(() => {
             <div class="size-big-title">Computer Science</div>
         </div>
 
-        <div v-if="!config" class="tp-load">
-            <i class="bi bi-arrow-clockwise"></i>
-             Loading ...
-        </div>
+        <load v-if="!config"/>
 
         <div v-if="config" class="tag-layout tk-noselect">
             <div class="tag" @click="all = true">全部显示</div>

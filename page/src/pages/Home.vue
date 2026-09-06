@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import {onMounted, ref} from "vue";
     import type {home} from "@misc/interface";
+    import Load from "@pages/framework/Load.vue";
 
     const config = ref<home>()
     onMounted(async () => {
@@ -22,10 +23,7 @@
             <div class="title-en size-subheader">The story continues.</div>
         </div>
 
-        <div v-if="!config" class="tp-load">
-            <i class="bi bi-arrow-clockwise"></i>
-             Loading ...
-        </div>
+        <load v-if="!config"/>
 
         <div class="headcard-layout">
             <div class="headcard-block" v-for="item in config.headcard" v-if="config">
