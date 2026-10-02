@@ -1,18 +1,11 @@
 <script setup lang="ts">
 import '@style/override.css'
 import '@misc/interface'
-import { io,Socket } from 'socket.io-client'
-import {onMounted, ref} from "vue"
-import type {admin_in_post_tag, admin_out_post_update} from "@misc/interface.ts"
+import { onMounted, ref } from "vue"
+import type {admin_res, article} from "@misc/interface.ts"
 
-let socket: Socket
-
-function popup(suc:boolean, info:string){
-    window.alert(info+(suc?'成功':'失败'))
-}
-
-let cstags = ref<string[]>()
-let misctags = ref<string[]>()
+let cstags = ref<string[]>([])
+let misctags = ref<string[]>([])
 
 function setOption(type:'cs'|'misc') {
     const select = document.getElementById('select') as HTMLSelectElement
@@ -22,14 +15,14 @@ function setOption(type:'cs'|'misc') {
     option.textContent = '自定义'
     select?.appendChild(option)
     if (type === 'cs') {
-        for (let item in cstags.value) {
+        for (let item of cstags.value) {
             const option = document.createElement('option')
             option.value = item
             option.textContent = item
             select?.appendChild(option)
         }
     } else {
-        for (let item in misctags.value) {
+        for (let item of misctags.value) {
             const option = document.createElement('option')
             option.value = item
             option.textContent = item
@@ -47,48 +40,59 @@ function type_change(){
     }
 }
 
-onMounted(()=> {
+const whole = ref<article>()
+onMounted(async ()=> {
+    const response1 = await fetch('/config/article.json')
+    whole.value = await response1.json()
+    console.log(whole.value?.cs.tag)
+    cstags.value = whole.value?.cs.tag ?? []
+    console.log(cstags.value)
+    misctags.value = whole.value?.misc.tag ?? []
     setOption('cs')
-
-    socket = io('https://api.xksyu.cn/blogadmiao')
-
-    socket.on('S_tag',(tags:admin_in_post_tag) => {
-        cstags.value=tags.cs
-        misctags.value=tags.misc
-    })
-    socket.on('S_auth',(suc:boolean) => {
-        popup(suc,'认证')
-    })
-    socket.on('S_post',(suc:boolean) => {
-        popup(suc,'文章提交')
-    })
-    socket.on('S_esa_ip',(suc:boolean) => {
-        popup(suc,'回源更新')
-    })
-    socket.on('S_esa_cache',(suc:boolean) => {
-        popup(suc,'ESA缓存刷新')
-    })
 })
 
-function auth(){
-    const pwd = document.getElementById('pwd') as HTMLInputElement | null
-    socket.emit('C_auth', pwd?.value ?? '')
+async function auth() {
+    const pwd = document.getElementById('pwd')?.textContent ?? ''
+    const res = await fetch('http://api.xksyu.cn/admiao/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pwd }),
+        credentials: 'include'
+    });
+    const data: admin_res = await res.json();
+    window.alert(data.message);
 }
-function toolkit(action: 'C_esa_ip'|'C_esa_cache'){
-    socket.emit(action)
+
+async function esa_ip_flush() {
+    const res = await fetch('http://api.xksyu.cn/admiao/esa_ip_flush', {
+        method: 'POST',
+        credentials: 'include'
+    });
+    const data: admin_res = await res.json();
+    window.alert(data.message);
 }
-function post(){
+
+async function esa_cache_flush() {
+    const res = await fetch('http://api.xksyu.cn/admiao/esa_cache_flush', {
+        method: 'POST',
+        credentials: 'include'
+    });
+    const data: admin_res = await res.json();
+    console.log(data.message);
+}
+
+async function post(){
     const msic = document.getElementById('misc') as HTMLInputElement | null
-    let type: 'cs'|'misc' = 'cs'
+    let part: 'cs'|'misc' = 'cs'
     if(msic?.checked){
-        type = 'misc'
+        part = 'misc'
     }
 
     const titleInput = document.getElementById('title') as HTMLInputElement | null
     const absInput = document.getElementById('abs') as HTMLTextAreaElement | null
     const title = titleInput?.value.trim() ?? ''
-    const abs = absInput?.value ?? ''
-    if(title === '' || abs === ''){
+    const abstract = absInput?.value ?? ''
+    if(title === '' || abstract === ''){
         window.alert('请补全信息再提交')
         return
     }
@@ -106,13 +110,14 @@ function post(){
         tag = select?.value ?? '默认'
     }
 
-    let postinfo:admin_out_post_update = {
-        title,
-        abs,
-        type,
-        tag
-    }
-    socket.emit('C_post',postinfo)
+    const res = await fetch('http://api.xksyu.cn/admiao/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, abstract, part, tag }),
+        credentials: 'include'
+    });
+    const data: admin_res = await res.json();
+    console.log(data.message);
 }
 
 </script>
@@ -131,8 +136,8 @@ function post(){
                 </div>
                 <div class="tool-layout">
                     <div class="size-title">Toolkit</div>
-                    <div class="button" @click="toolkit('C_esa_ip')">回源IP更新</div>
-                    <div class="button" @click="toolkit('C_esa_cache')">刷新ESA缓存</div>
+                    <div class="button" @click="esa_ip_flush()">回源IP更新</div>
+                    <div class="button" @click="esa_cache_flush()">刷新ESA缓存</div>
                 </div>
             </div>
             <div class="lineB">

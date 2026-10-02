@@ -41,14 +41,7 @@ export type tool = {
     file: string
 }[]
 
-export type admin_out_post_update = {
-    title: string,
-    tag: string,
-    type: 'cs' | 'misc'
-    abs: string
-}
-
-export type admin_in_post_tag = {
-    cs: string[],
-    misc: string[]
+export type admin_res = {
+    success: boolean,
+    message: string
 }
